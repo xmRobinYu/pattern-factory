@@ -9,8 +9,11 @@ import com.gp.mymvcframework.annotation.MyService;
 @MyService
 public class DemoService implements IDemoService{
 
-	public String get(String name) {
-		return "My name is " + name;
-	}
+	@Override
+    public String get(String name) throws Exception {
+		System.out.println("进入方法内部执行！");
+		//return "My name is " + name;
+        throw new Exception("故意抛出异常！");
+    }
 
 }

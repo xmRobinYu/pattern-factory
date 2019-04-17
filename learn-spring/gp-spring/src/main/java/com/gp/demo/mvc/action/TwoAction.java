@@ -1,24 +1,22 @@
 package com.gp.demo.mvc.action;
 
-import java.io.IOException;
+import com.gp.demo.service.IDemoService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.gp.demo.service.IDemoService;
-
 public class TwoAction {
-	
-	private IDemoService demoService;
 
-	public void edit(HttpServletRequest req,HttpServletResponse resp,
-					 String name){
-		String result = demoService.get(name);
-		try {
-			resp.getWriter().write(result);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
+    private IDemoService demoService;
+
+    public void edit(HttpServletRequest req, HttpServletResponse resp,
+                     String name) {
+        try {
+            String result = demoService.get(name);
+            resp.getWriter().write(result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
